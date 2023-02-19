@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common/decorators';
 import { CreateUserDto } from './dto/CreateUser.dto';
+import { UserEntity } from './user.entity';
 
 @Injectable() //decorator para torna-lo um provider
 export class UserRepository {
-  private users = [];
+  private users: UserEntity[] = [];
 
-  async save(user: CreateUserDto) {
+  async save(user: UserEntity) {
     this.users.push(user);
   }
 
